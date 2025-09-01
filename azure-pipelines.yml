@@ -2,10 +2,11 @@ trigger: none
 
 jobs:
 - job: TestTrigger
-  pool: server   # runs without any agent
+  pool: server   # server job, no agent required
   steps:
-    - task: PowerShell@2
+    - task: InvokeRESTAPI@1
       inputs:
-        targetType: inline
-        script: |
-          Write-Output "✅ Pipeline triggered from Logic App (server job)"
+        connectionType: 'none'
+        method: 'POST'
+        urlSuffix: ''
+        body: '{"message": "✅ Pipeline triggered successfully from Logic App (server job)"}'
