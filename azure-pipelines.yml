@@ -1,0 +1,15 @@
+# This pipeline is only for testing Logic App triggers
+trigger: none   # Disable automatic CI trigger
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo "✅ Pipeline triggered successfully from Logic App!"
+    displayName: "Test Trigger Step"
+
+  - script: |
+      echo "Pipeline ID: $(Build.BuildId)"
+      echo "Branch: $(Build.SourceBranch)"
+      echo "Requested By: $(Build.RequestedFor)"
+    displayName: "Show Build Info"
