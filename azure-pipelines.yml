@@ -1,12 +1,4 @@
-trigger: none
-
 jobs:
 - job: TestTrigger
-  pool: server   # server job, no agent required
-  steps:
-    - task: InvokeRESTAPI@1
-      inputs:
-        connectionType: 'none'
-        method: 'POST'
-        urlSuffix: ''
-        body: '{"message": "✅ Pipeline triggered successfully from Logic App (server job)"}'
+  pool: server   # no agent required
+  steps: []
